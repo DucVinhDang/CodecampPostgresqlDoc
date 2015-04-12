@@ -204,11 +204,13 @@ AS $$
 DECLARE
 BEGIN
 RETURN QUERY
-select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
-from answers where (answers.is_correct = TRUE and answers.question_id = $1) 
-or (answers.is_correct = FALSE and answers.answer_id = (select trunc(random() * 4 +  ( select min(answers.answer_id) from answers where answers.question_id = $1))))
-order by answers.is_correct DESC
-limit 2;
+(select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
+from answers where (answers.is_correct = TRUE and answers.question_id = $1))
+UNION
+(select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
+from answers where answers.is_correct = FALSE and answers.question_id = $1
+order by RANDOM()
+limit 1);
 END;
 $$
 LANGUAGE plpgsql;
