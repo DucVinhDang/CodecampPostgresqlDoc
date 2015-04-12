@@ -41,7 +41,7 @@ o	6.3. Xóa một câu hỏi: 5đ
 
 ### Các câu lệnh tạo bảng:
 ## Cấu trúc bảng:
- ![Database diagram](images/database_diagram.png)
+ ![Database diagram](docs/images/database_diagram.png)
 
 ## Lệnh tạo bảng
 
