@@ -221,7 +221,7 @@ select * from random_two_answer_with_a_correct_answer(2)
 ### 4.2 Truy vấn ngẫu nhiên tỉ lệ khán giả chọn đáp án của 1 câu hỏi theo % (Ví dụ: Đáp án A – 20%, B – 30%, C – 40%, D – 10%): 5đ
 ```
 CREATE OR REPLACE FUNCTION random_rating_answers()
-RETURNS table (m integer, n integer, p integer integer)
+RETURNS table (m integer, n integer, p integer, q integer)
 AS $$
 DECLARE
 a integer;b integer;c integer;d integer;
