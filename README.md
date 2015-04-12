@@ -113,6 +113,36 @@ CONSTRAINT players_score_fkey FOREIGN KEY (score_id) REFERENCES scores (score_id
 
 ### 1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ
 
+```
+CREATE OR REPLACE FUNCTION create_random_questions_with_number(number integer)
+RETURNS void AS
+$BODY$
+DECLARE
+  i integer; j integer; random_level integer; random_bool integer; random_question character varying(150); random_answer character varying(50);
+BEGIN
+  FOR i in 1..$1 LOOP
+    random_question = (SELECT md5(random()::text));
+    random_level = (select round(random() * ((select max(level_id) from levels)-1) + 1));
+    insert into questions (level_id, question) values (random_level,random_question);
+    
+    random_bool = (select (round(random()*3 + 1) :: integer));
+    FOR j in 1..4 LOOP
+      random_answer = (SELECT md5(random()::text));
+       
+      if (j = random_bool) then
+        insert into answers (question_id, answer, is_correct) values ((select max(question_id) from questions), random_answer, true);
+      else
+        insert into answers (question_id, answer, is_correct) values ((select max(question_id) from questions), random_answer, false);
+      end if;
+    END LOOP;
+  END LOOP;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+select create_random_questions_with_number(100);
+```
+
 ### 1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
 ```
 select q.question_id, q.question, a.answer, a.is_correct
