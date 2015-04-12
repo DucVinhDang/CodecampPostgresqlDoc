@@ -123,8 +123,10 @@ where q.question_id = (select trunc(random() * ( select count(question_id) from 
 ## 2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó. 
 
 ### 2.2 Truy vấn số lượng câu hỏi theo mỗi mức độ khó để kiểm tra số lượng câu hỏi cho mỗi mức độ khó đã bằng nhau chưa: 5đ
+
+Function trả về true (bằng nhau) hoặc false (chưa bằng nhau):
 ```
-CREATE OR REPLACE FUNCTION checking_for_balance() RETURNS void AS
+CREATE OR REPLACE FUNCTION checking_for_balance() RETURNS BOOLEAN AS
 $BODY$
 DECLARE
 x int; y int; z int; level_count int;
@@ -134,9 +136,10 @@ x = (select count(level_id) from questions where level_id = 1);
 FOR i in 2..level_count LOOP
 y = (select count(level_id) from questions where level_id = i);
 IF x != y THEN
-RAISE EXCEPTION 'So luong cau hoi giua cac level khong bang nhau';
+return false;
 END IF;
 END LOOP;
+return true;
 END;
 $BODY$
 LANGUAGE plpgsql;
@@ -158,31 +161,24 @@ RETURNS TABLE(question_id integer, level_id integer, question character varying(
 AS $$
 DECLARE 
 BEGIN
-RETURN QUERY
-select c.question_id, c.level_id, c.question
-from
-(  select b.question_id, b.level_id, b.question
-from 
-( select questions.question_id, questions.level_id, questions.question
-from questions
-where questions.level_id = 1
+  RETURN QUERY
+    (select questions.question_id, questions.level_id, questions.question
+    from questions
+    where questions.level_id = 1 order by RANDOM() limit 5)
 
-UNION
+    UNION
 
-select questions.question_id, questions.level_id, questions.question
-from questions
-where questions.level_id = 2
+    (select questions.question_id, questions.level_id, questions.question
+    from questions
+    where questions.level_id = 2 order by RANDOM() limit 5)
 
-UNION
+    UNION
 
-select questions.question_id, questions.level_id, questions.question
-from questions
-where questions.level_id = 3 ) as b
+    (select questions.question_id, questions.level_id, questions.question
+    from questions
+    where questions.level_id = 3 order by RANDOM() limit 5)
 
-order by RANDOM()
-limit 15 ) as c
-order by c.level_id ASC;
-
+    order by level_id ASC;
 END;
 $$
 LANGUAGE plpgsql;
