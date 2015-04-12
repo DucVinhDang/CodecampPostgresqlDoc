@@ -140,7 +140,7 @@ END;
 $BODY$
 LANGUAGE plpgsql;
 
-select create_random_questions_with_number(95);
+select create_random_questions_with_number(100);
 ```
 
 ### 1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
