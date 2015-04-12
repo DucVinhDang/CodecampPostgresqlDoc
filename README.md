@@ -41,7 +41,7 @@ o	6.3. Xóa một câu hỏi: 5đ
 
 ### Các câu lệnh tạo bảng:
 ## Cấu trúc bảng:
- ![Database diagram](docs/images/database_diagram.png)
+ ![Database diagram](images/database_diagram.png)
 
 ## Lệnh tạo bảng
 
@@ -253,7 +253,9 @@ BEGIN
 RETURN QUERY
 select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
 from answers
-where answers.answer_id = (select trunc(random() *4 +  ( select min(answers.answer_id) from answers where answers.question_id = $1))); 
+where answers.question_id = $1 
+order by RANDOM()
+limit 1;
 END;
 $$
 LANGUAGE plpgsql;
