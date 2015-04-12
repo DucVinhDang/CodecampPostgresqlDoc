@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+        <title>My Docs</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">My Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#codecamp-postgresql-ang-uc-vinh-nguyen-trung-tuyen">CodeCamp PostgreSQL: Đặng Đức Vinh + Nguyễn Trung Tuyến</a></li>
+        
+            <li><a href="#e-bai-thiet-ke-co-so-du-lieu-cho-ung-dung-game-ai-la-trieu-phu">Đề bài: Thiết kế cơ sở dữ liệu cho ứng dụng game Ai là triệu phú.</a></li>
+        
+            <li><a href="#y-tuong-thiet-lap-5-bang-bao-gom-cac-bang">Ý tưởng: Thiết lập 5 bảng bao gồm các bảng:</a></li>
+        
+            <li><a href="#cau-truc-bang">Cấu trúc bảng:</a></li>
+        
+            <li><a href="#lenh-tao-bang">Lệnh tạo bảng</a></li>
+        
+            <li><a href="#1-moi-cau-hoi-co-4-ap-an-va-chi-co-1-ap-an-ung-gioi-han-o-dai-cau-hoi-la-150-ky-tu-o-dai-ap-an-la-50-ky-tu">1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.</a></li>
+        
+            <li><a href="#2-co-van-e-moi-phat-sinh-la-co-phan-loai-cau-hoi-theo-3-muc-de-trung-binh-kho">2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó.</a></li>
+        
+            <li><a href="#3-luu-uoc-thong-tin-cau-hinh-cho-game-so-tien-at-uoc-ung-voi-so-cau-hoi-tra-loi-uoc-vi-du-tra-loi-uoc-1-cau-uoc-500k-2-cau-uoc-800k">3. Lưu được thông tin cấu hình cho game: Số tiền đạt được ứng với số câu hỏi trả lời được (Ví dụ: trả lời được 1 câu được 500k, 2 câu được 800k, …)</a></li>
+        
+            <li><a href="#4-gia-lap-tro-giup-nguoi-choi-50-50-tro-giup-tu-khan-gia-goi-ien-cho-nguoi-than">4. Giả lập trợ giúp người chơi (50-50, trợ giúp từ khán giả, gọi điện cho người thân)</a></li>
+        
+            <li><a href="#5-luu-thong-tin-nguoi-choi-bao-gom-ho-ten-thoi-iem-choi-so-tien-at-uoc">5. Lưu thông tin người chơi bao gồm: Họ tên, Thời điểm chơi, Số tiền đạt được.</a></li>
+        
+            <li><a href="#6-quan-ly-game-can-thuc-hien-cac-chuc-nang-quan-ly">6. Quản lý game cần thực hiện các chức năng quản lý:</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="codecamp-postgresql-ang-uc-vinh-nguyen-trung-tuyen">CodeCamp PostgreSQL: Đặng Đức Vinh + Nguyễn Trung Tuyến</h1>
+<h2 id="e-bai-thiet-ke-co-so-du-lieu-cho-ung-dung-game-ai-la-trieu-phu">Đề bài: Thiết kế cơ sở dữ liệu cho ứng dụng game Ai là triệu phú.</h2>
+<p>Chú ý: Các lệnh truy vấn yêu cầu chỉ sử dụng 1 lệnh để lấy được kết quả theo yêu cầu.
+Yêu cầu bài toán:
+•   1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.
+o   1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ
+o   1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
+o   1.3. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng với dữ liệu với nội dữ liệu không trùng nhau (Sử dụng JSON): 5đ
+•   2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó. 
+o   2.1. Hãy cập nhật thông tin bảng với yêu cầu mới thêm (Các bảng trước đó đã có và có dữ liệu): 5đ
+o   2.2. Truy vấn số lượng câu hỏi theo mỗi mức độ khó để kiểm tra số lượng câu hỏi cho mỗi mức độ khó đã bằng nhau chưa: 5đ
+o   2.3. Truy vấn lấy ngẫu nhiên được 1 câu hỏi thuộc mức độ Dễ (Trung bình, Khó): 5đ
+o   2.4. Truy vấn lấy ra ngẫu nhiên 15 câu hỏi và sắp xếp theo thứ tự độ khó tăng dần (mỗi độ khó có 5 câu hỏi sử dụng UNION): 10đ
+•   3. Lưu được thông tin cấu hình cho game: Số tiền đạt được ứng với số câu hỏi trả lời được (Ví dụ: trả lời được 1 câu được 500k, 2 câu được 800k, …).
+o   3.1. Nhập dữ liệu cấu hình cho game (15 mốc câu hỏi như Ai là triệu phú): 5đ
+•   4. Giả lập trợ giúp người chơi (50-50, trợ giúp từ khán giả, gọi điện cho người thân).
+o   4.1. Truy vấn lấy được ngẫu nhiên 2 trong số 4 đáp án của 1 câu hỏi bất kỳ, trong đó bắt buộc phải chứa đáp án đúng: 5đ
+o   4.2. Truy vấn ngẫu nhiên tỉ lệ khán giả chọn đáp án của 1 câu hỏi theo % (Ví dụ: Đáp án A – 20%, B – 30%, C – 40%, D – 10%): 5đ
+o   4.3. Truy vấn ngẫu nhiên đáp án cho 1 câu hỏi: 5đ (Câu hỏi gọi trợ giúp người thân)
+•   5. Lưu thông tin người chơi bao gồm: Họ tên, Thời điểm chơi, Số tiền đạt được.
+o   5.1. Nhập dữ liệu mẫu 100 người chơi: 5đ
+o   5.2. Truy vấn lấy ra 10 người chơi đạt điểm cao nhất, sắp xếp theo thứ tự điểm cao giảm dần (nếu 2 người chơi có cùng điểm số thì người chơi sau sẽ được xếp ở vị trí cao hơn): 5đ
+•   6. Quản lý game cần thực hiện các chức năng quản lý:
+o   6.1. Tìm kiếm câu hỏi theo id, theo từ khóa trong câu hỏi, theo từ khóa trong câu trả lời. Viết 2 lệnh truy vấn tìm kiếm theo từng cột và theo cả (id, từ khóa trong câu hỏi, từ khóa trong câu trả lời): 5đ
+o   6.2. Cập nhật nội dung một câu hỏi, cập nhật nội dung câu trả lời: 5đ
+o   6.3. Xóa một câu hỏi: 5đ</p>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs help</code> - Print this help message.</li>
+</ul>
+<h2 id="y-tuong-thiet-lap-5-bang-bao-gom-cac-bang">Ý tưởng: Thiết lập 5 bảng bao gồm các bảng:</h2>
+<ul>
+<li>levels: Lưu trữ cấp độ của các câu hỏi;</li>
+<li>questions: Lưu trữ nội dung các câu hỏi;</li>
+<li>answers: Lưu trữ đáp án của các câu hỏi;</li>
+<li>scores: Lưu trữ mức điểm (tiền thưởng) tương ứng với số câu đạt được dựa trên id;</li>
+<li>players: Lưu trữ thông tin người chơi.</li>
+</ul>
+<h3 id="cac-cau-lenh-tao-bang">Các câu lệnh tạo bảng:</h3>
+<h2 id="cau-truc-bang">Cấu trúc bảng:</h2>
+<p><img alt="Database diagram" src="./images/database_diagram.png" /></p>
+<h2 id="lenh-tao-bang">Lệnh tạo bảng</h2>
+<ul>
+<li>Bảng levels</li>
+</ul>
+<pre><code>create table levels (
+level_id serial NOT NULL,
+name character varying(30) NOT NULL,
+description text,
+CONSTRAINT levels_pkey PRIMARY KEY (level_id)
+)
+</code></pre>
+
+<ul>
+<li>Bảng questions </li>
+</ul>
+<pre><code>create table questions (
+question_id serial NOT NULL,
+level_id integer NOT NULL,
+question character varying(150) NOT NULL,
+CONSTRAINT questions_pkey PRIMARY KEY (question_id),
+CONSTRAINT questions_level_fkey FOREIGN KEY (level_id) REFERENCES levels (level_id),
+description text
+)
+</code></pre>
+
+<ul>
+<li>Bảng answers</li>
+</ul>
+<pre><code>create table answers (
+answer_id serial NOT NULL,
+question_id integer NOT NULL,
+answer character varying(50) NOT NULL,
+is_correct boolean DEFAULT FALSE,
+CONSTRAINT answers_pkey PRIMARY KEY (answer_id),
+CONSTRAINT answers_question_fkey FOREIGN KEY (question_id) REFERENCES questions (question_id),
+description text
+)
+</code></pre>
+
+<ul>
+<li>Bảng scores</li>
+</ul>
+<pre><code>create table scores (
+score_id serial NOT NULL,
+score integer NOT NULL,
+CONSTRAINT scores_pkey PRIMARY KEY (score_id),
+CHECK ( score &gt; 0 )
+
+</code></pre>
+
+<ul>
+<li>Bảng players</li>
+</ul>
+<pre><code>create table players (
+player_id serial NOT NULL,
+score_id integer,
+player_name character varying(100) NOT NULL,
+beginning_time timestamp NOT NULL,
+CONSTRAINT players_pkey PRIMARY KEY (player_id),
+CONSTRAINT players_score_fkey FOREIGN KEY (score_id) REFERENCES scores (score_id)
+)
+</code></pre>
+
+<h3 id="cac-lenh-truy-van">Các lệnh truy vấn:</h3>
+<h2 id="1-moi-cau-hoi-co-4-ap-an-va-chi-co-1-ap-an-ung-gioi-han-o-dai-cau-hoi-la-150-ky-tu-o-dai-ap-an-la-50-ky-tu">1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.</h2>
+<h3 id="11-nhap-du-lieu-cho-100-cau-hoi-20">1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ</h3>
+<h3 id="12-truy-van-1-cau-hoi-bat-ky-va-lay-ra-uoc-noi-dung-cau-hoi-4-ap-an-ap-an-ung-5">1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ</h3>
+<pre><code>select q.question_id, q.question, a.answer, a.is_correct
+from questions as q join answers as a on q.question_id = a.question_id
+where q.question_id = (select trunc(random() * ( select count(question_id) from questions) + 1))
+</code></pre>
+
+<h2 id="2-co-van-e-moi-phat-sinh-la-co-phan-loai-cau-hoi-theo-3-muc-de-trung-binh-kho">2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó.</h2>
+<h3 id="22-truy-van-so-luong-cau-hoi-theo-moi-muc-o-kho-e-kiem-tra-so-luong-cau-hoi-cho-moi-muc-o-kho-a-bang-nhau-chua-5">2.2 Truy vấn số lượng câu hỏi theo mỗi mức độ khó để kiểm tra số lượng câu hỏi cho mỗi mức độ khó đã bằng nhau chưa: 5đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION checking_for_balance() RETURNS void AS
+$BODY$
+DECLARE
+x int; y int; z int; level_count int;
+BEGIN
+level_count = (select count(level_id) from levels);
+x = (select count(level_id) from questions where level_id = 1);
+FOR i in 2..level_count LOOP
+y = (select count(level_id) from questions where level_id = i);
+IF x != y THEN
+RAISE EXCEPTION 'So luong cau hoi giua cac level khong bang nhau';
+END IF;
+END LOOP;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+select checking_for_balance();
+</code></pre>
+
+<h3 id="23-truy-van-lay-ngau-nhien-uoc-1-cau-hoi-thuoc-muc-o-de-trung-binh-kho-5">2.3 Truy vấn lấy ngẫu nhiên được 1 câu hỏi thuộc mức độ Dễ (Trung bình, Khó): 5đ</h3>
+<pre><code>select *
+from questions
+where level_id = (select trunc(random() * ( select count(level_id) from levels) + 1)) limit 1
+</code></pre>
+
+<h3 id="24-truy-van-lay-ra-ngau-nhien-15-cau-hoi-va-sap-xep-theo-thu-tu-o-kho-tang-dan-moi-o-kho-co-5-cau-hoi-su-dung-union-10">2.4 Truy vấn lấy ra ngẫu nhiên 15 câu hỏi và sắp xếp theo thứ tự độ khó tăng dần (mỗi độ khó có 5 câu hỏi sử dụng UNION): 10đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION random_fifteen_question_and_sort() 
+RETURNS TABLE(question_id integer, level_id integer, question character varying(150))
+AS $$
+DECLARE 
+BEGIN
+RETURN QUERY
+select c.question_id, c.level_id, c.question
+from
+(  select b.question_id, b.level_id, b.question
+from 
+( select questions.question_id, questions.level_id, questions.question
+from questions
+where questions.level_id = 1
+
+UNION
+
+select questions.question_id, questions.level_id, questions.question
+from questions
+where questions.level_id = 2
+
+UNION
+
+select questions.question_id, questions.level_id, questions.question
+from questions
+where questions.level_id = 3 ) as b
+
+order by RANDOM()
+limit 15 ) as c
+order by c.level_id ASC;
+
+END;
+$$
+LANGUAGE plpgsql;
+
+select * from random_fifteen_question_and_sort();
+</code></pre>
+
+<h2 id="3-luu-uoc-thong-tin-cau-hinh-cho-game-so-tien-at-uoc-ung-voi-so-cau-hoi-tra-loi-uoc-vi-du-tra-loi-uoc-1-cau-uoc-500k-2-cau-uoc-800k">3. Lưu được thông tin cấu hình cho game: Số tiền đạt được ứng với số câu hỏi trả lời được (Ví dụ: trả lời được 1 câu được 500k, 2 câu được 800k, …)</h2>
+<h3 id="31-nhap-du-lieu-cau-hinh-cho-game-15-moc-cau-hoi-nhu-ai-la-trieu-phu-5">3.1 Nhập dữ liệu cấu hình cho game (15 mốc câu hỏi như Ai là triệu phú): 5đ</h3>
+<pre><code>insert into scores (score) values (500000), (800000), (1500000), (2500000), (4000000), (6000000), (9000000), (12000000), (16000000), (20000000), (25000000), (32000000), (45000000), (70000000), (100000000)
+select * from scores
+</code></pre>
+
+<h2 id="4-gia-lap-tro-giup-nguoi-choi-50-50-tro-giup-tu-khan-gia-goi-ien-cho-nguoi-than">4. Giả lập trợ giúp người chơi (50-50, trợ giúp từ khán giả, gọi điện cho người thân)</h2>
+<h3 id="41-truy-van-lay-uoc-ngau-nhien-2-trong-so-4-ap-an-cua-1-cau-hoi-bat-ky-trong-o-bat-buoc-phai-chua-ap-an-ung-5">4.1 Truy vấn lấy được ngẫu nhiên 2 trong số 4 đáp án của 1 câu hỏi bất kỳ, trong đó bắt buộc phải chứa đáp án đúng: 5đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION random_two_answer_with_a_correct_answer(question_index integer) 
+RETURNS TABLE(answer_id integer, question_id integer, answer character varying(50), is_correct boolean)
+AS $$
+DECLARE
+BEGIN
+RETURN QUERY
+select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
+from answers where (answers.is_correct = TRUE and answers.question_id = $1) 
+or (answers.is_correct = FALSE and answers.answer_id = (select trunc(random() * 4 +  ( select min(answers.answer_id) from answers where answers.question_id = $1))))
+order by answers.is_correct DESC
+limit 2;
+END;
+$$
+LANGUAGE plpgsql;
+
+select * from random_two_answer_with_a_correct_answer(2)
+</code></pre>
+
+<h3 id="42-truy-van-ngau-nhien-ti-le-khan-gia-chon-ap-an-cua-1-cau-hoi-theo-vi-du-ap-an-a-20-b-30-c-40-d-10-5">4.2 Truy vấn ngẫu nhiên tỉ lệ khán giả chọn đáp án của 1 câu hỏi theo % (Ví dụ: Đáp án A – 20%, B – 30%, C – 40%, D – 10%): 5đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION random_rating_answers()
+RETURNS table (m integer, n integer, p integer integer)
+AS $$
+DECLARE
+a integer;b integer;c integer;d integer;
+
+BEGIN
+d = 100;
+a = round(random() * d);
+d = d - a;
+b = round(random() * d);
+d = d - b;
+c = round(random() * d);
+d = d - c;
+RETURN QUERY
+select a,b,c,d;
+END;
+$$
+LANGUAGE plpgsql;
+
+select * from random_rating_answers()
+</code></pre>
+
+<h3 id="43-truy-van-ngau-nhien-ap-an-cho-1-cau-hoi-5-cau-hoi-goi-tro-giup-nguoi-than">4.3 Truy vấn ngẫu nhiên đáp án cho 1 câu hỏi: 5đ (Câu hỏi gọi trợ giúp người thân)</h3>
+<pre><code>CREATE OR REPLACE FUNCTION random_answer_for_a_question(question_index integer) 
+RETURNS TABLE(answer_id integer, question_id integer, answer character varying(50), is_correct boolean)
+AS $$
+DECLARE 
+BEGIN
+RETURN QUERY
+select answers.answer_id, answers.question_id, answers.answer, answers.is_correct
+from answers
+where answers.answer_id = (select trunc(random() *4 +  ( select min(answers.answer_id) from answers where answers.question_id = $1))); 
+END;
+$$
+LANGUAGE plpgsql;
+
+select * from random_answer_for_a_question(2) 
+</code></pre>
+
+<h2 id="5-luu-thong-tin-nguoi-choi-bao-gom-ho-ten-thoi-iem-choi-so-tien-at-uoc">5. Lưu thông tin người chơi bao gồm: Họ tên, Thời điểm chơi, Số tiền đạt được.</h2>
+<h3 id="51-nhap-du-lieu-mau-100-nguoi-choi-5">5.1 Nhập dữ liệu mẫu 100 người chơi: 5đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION before_add_a_player() RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+NEW.beginning_time = (select now());
+return NEW;
+END
+$$;
+
+CREATE TRIGGER trigger_add_beginning_time_before_insert_player
+BEFORE INSERT ON players
+FOR EACH ROW
+EXECUTE PROCEDURE before_add_a_player(); 
+
+
+CREATE OR REPLACE FUNCTION random_players(max INTEGER) RETURNS void AS
+$BODY$
+DECLARE
+i int; name character varying(10); random_score_id int;
+BEGIN
+name = 'player';
+FOR i in 1..$1 LOOP
+random_score_id = (select trunc(random() * ( select count(score_id) from scores) + 1));
+insert into players(player_name, score_id) values (CONCAT(name,i), random_score_id);
+END LOOP;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+select random_players(100);
+</code></pre>
+
+<h3 id="52-truy-van-lay-ra-10-nguoi-choi-at-iem-cao-nhat-sap-xep-theo-thu-tu-iem-cao-giam-dan-neu-2-nguoi-choi-co-cung-iem-so-thi-nguoi-choi-sau-se-uoc-xep-o-vi-tri-cao-hon-5">5.2 Truy vấn lấy ra 10 người chơi đạt điểm cao nhất, sắp xếp theo thứ tự điểm cao giảm dần (nếu 2 người chơi có cùng điểm số thì người chơi sau sẽ được xếp ở vị trí cao hơn): 5đ</h3>
+<pre><code>select * from players
+order by score_id DESC, beginning_time DESC
+limit 10
+</code></pre>
+
+<h2 id="6-quan-ly-game-can-thuc-hien-cac-chuc-nang-quan-ly">6. Quản lý game cần thực hiện các chức năng quản lý:</h2>
+<h3 id="61-tim-kiem-cau-hoi-theo-id-theo-tu-khoa-trong-cau-hoi-theo-tu-khoa-trong-cau-tra-loi">6.1 Tìm kiếm câu hỏi theo id, theo từ khóa trong câu hỏi, theo từ khóa trong câu trả lời:</h3>
+<pre><code>select * from questions where question_id = 3
+select * from questions where question LIKE '%uo%'
+</code></pre>
+
+<h3 id="62-cap-nhat-noi-dung-mot-cau-hoi-cap-nhat-noi-dung-cau-tra-loi-5">6.2 Cập nhật nội dung một câu hỏi, cập nhật nội dung câu trả lời: 5đ</h3>
+<pre><code>update questions
+set question = 'Nuoc nao co dien tich nho nhat the gioi?'
+where question_id = 1
+
+update answers
+set answer = 'Nuoc My'
+where answer_id = 1 and question_id = 1
+</code></pre>
+
+<h3 id="63-xoa-mot-cau-hoi-5">6.3 Xóa một câu hỏi: 5đ</h3>
+<pre><code>CREATE OR REPLACE FUNCTION before_remove_a_question() RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+delete from answers where question_id = OLD.question_id;
+return OLD;
+END
+$$;
+
+CREATE TRIGGER trigger_delete_answers_before_delete_question
+BEFORE DELETE ON questions
+FOR EACH ROW
+EXECUTE PROCEDURE before_remove_a_question();
+
+delete from questions where question_id = 4
+</code></pre>
+
+<p>-- Lệnh chèn dữ liệu mẫu
+ -- Lệnh truy vấn dữ liệu mẫu
+ -- Các lệnh query phức tạp</p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/prettify-1.0.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="./js/base.js"></script>
+    </body>
+</html>
