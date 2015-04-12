@@ -1,4 +1,4 @@
-# CodeCamp PostgreSQL: Đặng Đức Vinh + Nguyễn Trung Tuyến
+# CodeCamp PostgreSQL: Đặng Đức Vinh (Rails 01) + Nguyễn Trung Tuyến (Rails 01)
 
 ## Đề bài: Thiết kế cơ sở dữ liệu cho ứng dụng game Ai là triệu phú.
 Chú ý: Các lệnh truy vấn yêu cầu chỉ sử dụng 1 lệnh để lấy được kết quả theo yêu cầu.
