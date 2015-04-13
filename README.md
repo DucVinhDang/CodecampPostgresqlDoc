@@ -1,30 +1,51 @@
 # CodeCamp PostgreSQL: Đặng Đức Vinh (Rails 01) + Nguyễn Trung Tuyến (Rails 01)
+## Thông tin các thành viên trong nhóm:
+
+```
+* Họ và tên: Đặng Đức Vinh
+* Email: ducvinh0812@gmail.com
+* Lớp: Ruby On Rails
+* Khoá: 01
+* Năm sinh: 1994
+* Số điện thoại: +84916491994
+* Địa chỉ: Số nhà 18 ngõ 2 phố Phương Mai - quận Đống Đa - Hà Nội
+```
+
+```
+* Họ và tên: Nguyễn Trung Tuyến
+* Email: 
+* Lớp: Ruby On Rails
+* Khoá: 01
+* Năm sinh: 
+* Số điện thoại: +84989943210
+* Địa chỉ: 
+```
 
 ## Đề bài: Thiết kế cơ sở dữ liệu cho ứng dụng game Ai là triệu phú.
 Chú ý: Các lệnh truy vấn yêu cầu chỉ sử dụng 1 lệnh để lấy được kết quả theo yêu cầu.
 Yêu cầu bài toán:
-•	1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.
-o	1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ
-o	1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
-o	1.3. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng với dữ liệu với nội dữ liệu không trùng nhau (Sử dụng JSON): 5đ
-•	2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó. 
-o	2.1. Hãy cập nhật thông tin bảng với yêu cầu mới thêm (Các bảng trước đó đã có và có dữ liệu): 5đ
-o	2.2. Truy vấn số lượng câu hỏi theo mỗi mức độ khó để kiểm tra số lượng câu hỏi cho mỗi mức độ khó đã bằng nhau chưa: 5đ
-o	2.3. Truy vấn lấy ngẫu nhiên được 1 câu hỏi thuộc mức độ Dễ (Trung bình, Khó): 5đ
-o	2.4. Truy vấn lấy ra ngẫu nhiên 15 câu hỏi và sắp xếp theo thứ tự độ khó tăng dần (mỗi độ khó có 5 câu hỏi sử dụng UNION): 10đ
-•	3. Lưu được thông tin cấu hình cho game: Số tiền đạt được ứng với số câu hỏi trả lời được (Ví dụ: trả lời được 1 câu được 500k, 2 câu được 800k, …).
-o	3.1. Nhập dữ liệu cấu hình cho game (15 mốc câu hỏi như Ai là triệu phú): 5đ
-•	4. Giả lập trợ giúp người chơi (50-50, trợ giúp từ khán giả, gọi điện cho người thân).
-o	4.1. Truy vấn lấy được ngẫu nhiên 2 trong số 4 đáp án của 1 câu hỏi bất kỳ, trong đó bắt buộc phải chứa đáp án đúng: 5đ
-o	4.2. Truy vấn ngẫu nhiên tỉ lệ khán giả chọn đáp án của 1 câu hỏi theo % (Ví dụ: Đáp án A – 20%, B – 30%, C – 40%, D – 10%): 5đ
-o	4.3. Truy vấn ngẫu nhiên đáp án cho 1 câu hỏi: 5đ (Câu hỏi gọi trợ giúp người thân)
-•	5. Lưu thông tin người chơi bao gồm: Họ tên, Thời điểm chơi, Số tiền đạt được.
-o	5.1. Nhập dữ liệu mẫu 100 người chơi: 5đ
-o	5.2. Truy vấn lấy ra 10 người chơi đạt điểm cao nhất, sắp xếp theo thứ tự điểm cao giảm dần (nếu 2 người chơi có cùng điểm số thì người chơi sau sẽ được xếp ở vị trí cao hơn): 5đ
-•	6. Quản lý game cần thực hiện các chức năng quản lý:
-o	6.1. Tìm kiếm câu hỏi theo id, theo từ khóa trong câu hỏi, theo từ khóa trong câu trả lời. Viết 2 lệnh truy vấn tìm kiếm theo từng cột và theo cả (id, từ khóa trong câu hỏi, từ khóa trong câu trả lời): 5đ
-o	6.2. Cập nhật nội dung một câu hỏi, cập nhật nội dung câu trả lời: 5đ
-o	6.3. Xóa một câu hỏi: 5đ
+*	1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.
+ *	1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ
+ *	1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
+ *	1.3. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng với dữ liệu với nội dữ liệu không trùng nhau (Sử dụng JSON): 5đ
+*	2. Có vấn đề mới phát sinh là có phân loại câu hỏi theo 3 mức: Dễ, Trung bình, Khó. 
+ * 2.1. Hãy cập nhật thông tin bảng với yêu cầu mới thêm (Các bảng trước đó đã có và có dữ liệu): 5đ
+ * 2.2. Truy vấn số lượng câu hỏi theo mỗi mức độ khó để kiểm tra số lượng câu hỏi cho mỗi mức độ khó đã bằng nhau chưa: 5đ
+ * 2.3. Truy vấn lấy ngẫu nhiên được 1 câu hỏi thuộc mức độ Dễ (Trung bình, Khó): 5đ
+ * 2.4. Truy vấn lấy ra ngẫu nhiên 15 câu hỏi và sắp xếp theo thứ tự độ khó tăng dần (mỗi độ khó có 5 câu hỏi sử dụng UNION): 10đ
+*	3. Lưu được thông tin cấu hình cho game: Số tiền đạt được ứng với số câu hỏi trả lời được (Ví dụ: trả lời được 1 câu được 500k, 2 câu được 800k, …).
+ * 3.1. Nhập dữ liệu cấu hình cho game (15 mốc câu hỏi như Ai là triệu phú): 5đ
+* 4. Giả lập trợ giúp người chơi (50-50, trợ giúp từ khán giả, gọi điện cho người thân).
+ * 4.1. Truy vấn lấy được ngẫu nhiên 2 trong số 4 đáp án của 1 câu hỏi bất kỳ, trong đó bắt buộc phải chứa đáp án đúng: 5đ
+ * 4.2. Truy vấn ngẫu nhiên tỉ lệ khán giả chọn đáp án của 1 câu hỏi theo % (Ví dụ: Đáp án A – 20%, B – 30%, C – 40%, D – 10%): 5đ
+ * 4.3. Truy vấn ngẫu nhiên đáp án cho 1 câu hỏi: 5đ (Câu hỏi gọi trợ giúp người thân)
+* 5. Lưu thông tin người chơi bao gồm: Họ tên, Thời điểm chơi, Số tiền đạt được.
+ * 5.1. Nhập dữ liệu mẫu 100 người chơi: 5đ
+ * 5.2. Truy vấn lấy ra 10 người chơi đạt điểm cao nhất, sắp xếp theo thứ tự điểm cao giảm dần (nếu 2 người chơi có cùng điểm số thì người chơi sau sẽ được xếp ở vị trí cao hơn): 5đ
+* 6. Quản lý game cần thực hiện các chức năng quản lý:
+ * 6.1. Tìm kiếm câu hỏi theo id, theo từ khóa trong câu hỏi, theo từ khóa trong câu trả lời. Viết 2 lệnh truy vấn tìm kiếm theo từng cột và theo cả (id, từ khóa trong câu hỏi, từ khóa trong câu trả lời): 5đ
+ * 6.2. Cập nhật nội dung một câu hỏi, cập nhật nội dung câu trả lời: 5đ
+ * 6.3. Xóa một câu hỏi: 5đ
 
 
 * `mkdocs new [dir-name]` - Create a new project.
@@ -39,11 +60,10 @@ o	6.3. Xóa một câu hỏi: 5đ
 * scores: Lưu trữ mức điểm (tiền thưởng) tương ứng với số câu đạt được dựa trên id;
 * players: Lưu trữ thông tin người chơi.
 
-### Các câu lệnh tạo bảng:
 ## Cấu trúc bảng:
  ![Database diagram](docs/images/database_diagram.png)
 
-## Lệnh tạo bảng
+## Các câu lệnh tạo bảng:
 
 * Bảng levels
 
@@ -107,7 +127,7 @@ CONSTRAINT players_score_fkey FOREIGN KEY (score_id) REFERENCES scores (score_id
 )
 ```
 
-### Các lệnh truy vấn:
+## Các lệnh truy vấn:
 
 ## 1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.
 
