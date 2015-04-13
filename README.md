@@ -23,7 +23,8 @@
 
 ## Đề bài: Thiết kế cơ sở dữ liệu cho ứng dụng game Ai là triệu phú.
 Chú ý: Các lệnh truy vấn yêu cầu chỉ sử dụng 1 lệnh để lấy được kết quả theo yêu cầu.
-Yêu cầu bài toán:
+### Yêu cầu bài toán:
+
 *	1. Mỗi câu hỏi có 4 đáp án và chỉ có 1 đáp án đúng. Giới hạn độ dài câu hỏi là 150 ký tự, độ dài đáp án là 50 ký tự.
  *	1.1 Nhập dữ liệu cho 100 câu hỏi: 20đ
  *	1.2. Truy vấn 1 câu hỏi bất kỳ và lấy ra được nội dung câu hỏi, 4 đáp án, đáp án đúng: 5đ
@@ -59,6 +60,8 @@ Yêu cầu bài toán:
 * answers: Lưu trữ đáp án của các câu hỏi;
 * scores: Lưu trữ mức điểm (tiền thưởng) tương ứng với số câu đạt được dựa trên id;
 * players: Lưu trữ thông tin người chơi.
+
+---
 
 ## Cấu trúc bảng:
  ![Database diagram](docs/images/database_diagram.png)
@@ -126,6 +129,8 @@ CONSTRAINT players_pkey PRIMARY KEY (player_id),
 CONSTRAINT players_score_fkey FOREIGN KEY (score_id) REFERENCES scores (score_id)
 )
 ```
+
+---
 
 ## Các lệnh truy vấn:
 
