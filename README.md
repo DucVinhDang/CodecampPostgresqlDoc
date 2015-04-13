@@ -13,7 +13,7 @@
 
 ```
 * Họ và tên: Nguyễn Trung Tuyến
-* Email: 
+* Email: NguyenTrungTuyen.com@Gmail.com
 * Lớp: Ruby On Rails
 * Khoá: 01
 * Năm sinh: 
