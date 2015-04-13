@@ -61,8 +61,6 @@ Chú ý: Các lệnh truy vấn yêu cầu chỉ sử dụng 1 lệnh để lấ
 * scores: Lưu trữ mức điểm (tiền thưởng) tương ứng với số câu đạt được dựa trên id;
 * players: Lưu trữ thông tin người chơi.
 
----
-
 ## Cấu trúc bảng:
  ![Database diagram](docs/images/database_diagram.png)
 
@@ -130,7 +128,10 @@ CONSTRAINT players_score_fkey FOREIGN KEY (score_id) REFERENCES scores (score_id
 )
 ```
 
+
 ---
+
+
 
 ## Các lệnh truy vấn:
 
